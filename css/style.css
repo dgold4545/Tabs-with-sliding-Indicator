@@ -58,15 +58,20 @@ body {
   z-index: 2;
 }
 
-.tabs input:nth-child(1):checked ~ icon label:nth-child(1),
-.tabs input:nth-child(2):checked ~ icon label:nth-child(2),
-.tabs input:nth-child(3):checked ~ icon label:nth-child(3),
-.tabs input:nth-child(4):checked ~ icon label:nth-child(4) {
+ion-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.tabs input:nth-child(1):checked ~ .icon label:nth-child(1),
+.tabs input:nth-child(2):checked ~ .icon label:nth-child(2),
+.tabs input:nth-child(3):checked ~ .icon label:nth-child(3),
+.tabs input:nth-child(4):checked ~ .icon label:nth-child(4) {
   opacity: 1;
 }
 
 .indicator {
-  position: relative;
+  position: absolute;
   width: 80px;
   height: 80px;
   background-color: var(--clr);
@@ -84,18 +89,63 @@ body {
   width: 20px;
   height: 20px;
   background: transparent;
-  border-bottom-rigth-radius: 20px;
+  border-bottom-right-radius: 20px;
   box-shadow: 8px 8px 0 8px var(--clr);
 }
 
 .indicator::after {
   content: '';
   position: absolute;
-  top: -20px;
+  bottom: -20px;
   right: 0;
   width: 20px;
   height: 20px;
   background: transparent;
-  border-top-rigth-radius: 20px;
+  border-top-right-radius: 20px;
   box-shadow: 8px -8px 0 8px var(--clr);
+}
+
+.tabs input:nth-child(1):checked ~ .icon .indicator {
+  top: 0;
+}
+.tabs input:nth-child(2):checked ~ .icon .indicator {
+  top: 25%;
+}
+.tabs input:nth-child(3):checked ~ .icon .indicator {
+  top: 50%;
+}
+.tabs input:nth-child(4):checked ~ .icon .indicator {
+  top: 75%;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  width: 520px;
+  height: 400px;
+  background: linear-gradient(90deg, var(--clr), #df0d54);
+  border-radius: 20px;
+}
+
+.content .contentBx {
+  position: absolute;
+  inset: 0;
+  padding: 50px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.tabs input:nth-child(1):checked ~ .content .contentBx:nth-child(1),
+.tabs input:nth-child(2):checked ~ .content .contentBx:nth-child(2),
+.tabs input:nth-child(3):checked ~ .content .contentBx:nth-child(3),
+.tabs input:nth-child(4):checked ~ .content .contentBx:nth-child(4) {
+  opacity: 1;
+  visibility: visible;
+}
+
+.content .contentBx h2,
+.content .contentBx p {
+  color: #fff;
 }
