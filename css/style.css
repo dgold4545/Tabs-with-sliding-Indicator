@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+:root {
+  --clr: #a12db5;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #222;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 600px;
+  height: 400px;
+}
+
+.tabs {
+  position: relative;
+  width: 80px;
+  padding: 40px 0;
+}
+
+.tabs input {
+  appearance: none;
+  display: none;
+}
+
+.tabs .icon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs .icon label {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 90px;
+  font-style: 2em;
+  color: #fff;
+  opacity: 0.25;
+  transition: 0.5s;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.tabs input:nth-child(1):checked ~ icon label:nth-child(1),
+.tabs input:nth-child(2):checked ~ icon label:nth-child(2),
+.tabs input:nth-child(3):checked ~ icon label:nth-child(3),
+.tabs input:nth-child(4):checked ~ icon label:nth-child(4) {
+  opacity: 1;
+}
+
+.indicator {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background-color: var(--clr);
+  z-index: 1;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  transition: 0.5s;
+}
+
+.indicator::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-bottom-rigth-radius: 20px;
+  box-shadow: 8px 8px 0 8px var(--clr);
+}
+
+.indicator::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-rigth-radius: 20px;
+  box-shadow: 8px -8px 0 8px var(--clr);
+}
